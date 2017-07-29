@@ -1,6 +1,10 @@
 <resources>
     <string name="app_name">TranslateApp</string>
     <string name="title_home">Hasiera</string>
-    <string name="title_dashboard">Dashboard</string>
+    <string name="title_dashboard">Panela</string>
     <string name="title_notifications">Jakinarazpenak</string>
+
+    <string name="basque_language_lbl">Euskara</string>
+    <string name="spanish_language_lbl">Español</string>
+    <string name="english_language_lbl">English</string>
 </resources>

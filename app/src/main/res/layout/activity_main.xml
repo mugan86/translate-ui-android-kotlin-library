@@ -31,19 +31,19 @@
                 android:id="@+id/basqueButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
-
-            <Button
-                android:id="@+id/englishButton"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="@string/basque_language_lbl" />
 
             <Button
                 android:id="@+id/spanishButton"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="Button" />
+                android:text="@string/spanish_language_lbl" />
+
+            <Button
+                android:id="@+id/englishButton"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/english_language_lbl" />
 
         </LinearLayout>
 
