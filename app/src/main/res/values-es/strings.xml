@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">TranslateApp</string>
+    <string name="title_home">Inicio</string>
+    <string name="title_dashboard">Panel</string>
+    <string name="title_notifications">Notificaciones</string>
+
+    <string name="basque_language_lbl">Euskara</string>
+    <string name="spanish_language_lbl">Español</string>
+    <string name="english_language_lbl">English</string>
+</resources>

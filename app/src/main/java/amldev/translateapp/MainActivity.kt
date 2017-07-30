@@ -1,6 +1,5 @@
 package amldev.translateapp
 
-import android.app.Activity
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -8,16 +7,11 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import org.jetbrains.anko.find
-import java.util.*
-import android.content.Intent
-
-
+import android.content.res.Configuration
 
 class MainActivity : AppCompatActivity() {
 
     private var mTextMessage: TextView? = null
-    private var startLanguageSelect: String? = null
-    private val myLocale: Locale? = null
 
     private val mOnNavigationItemSelectedListener = BottomNavigationView.OnNavigationItemSelectedListener { item ->
         when (item.itemId) {
@@ -37,6 +31,11 @@ class MainActivity : AppCompatActivity() {
         false
     }
 
+    //To use LocaleHelper select language
+    override fun attachBaseContext(base: Context) {
+        super.attachBaseContext(LocaleHelper.onAttach(base))
+    }
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
@@ -45,24 +44,21 @@ class MainActivity : AppCompatActivity() {
         val englishButton: Button = find(R.id.englishButton)
         val spanishButton: Button = find(R.id.spanishButton)
 
-        startLanguageSelect = getLocaleLanguage(this)
-        println("46 ${getLocaleLanguage(this)}")
-
-        loadLocale(this, getLocaleLanguage(this))
+        LocaleHelper.setLocale(this, LocaleHelper.getLanguage(this))
 
         basqueButton.setOnClickListener {
-            println("Change to basque" + getLocaleLanguage(this))
-            if (getLocaleLanguage(this) != "eu") changeLang("eu")
+            println("Change to basque" + LocaleHelper.getLanguage(this))
+            if (LocaleHelper.getLanguage(this) != "eu") changeLang("eu")
         }
 
         englishButton.setOnClickListener {
-            println("Change to english" + getLocaleLanguage(this))
-            if (getLocaleLanguage(this) != "en") changeLang("en")
+            println("Change to english" + LocaleHelper.getLanguage(this))
+            if (LocaleHelper.getLanguage(this) != "en") changeLang("en")
         }
 
         spanishButton.setOnClickListener {
-            println("Change to spanish" + getLocaleLanguage(this))
-            if (getLocaleLanguage(this) != "es") changeLang("es")
+            println("Change to spanish" + LocaleHelper.getLanguage(this))
+            if (LocaleHelper.getLanguage(this) != "es") changeLang("es")
         }
 
 
@@ -72,53 +68,23 @@ class MainActivity : AppCompatActivity() {
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
     }
 
-    fun getLocaleLanguage(context: Context): String {
-        return context.getSharedPreferences("LanguageDefaultPreferences", Activity.MODE_PRIVATE).getString("Language", "")
-    }
 
-    fun loadLocale(context: Context, lang: String) {
 
-        val myLocale = Locale(lang)
-        saveLocale(lang, context)
-        Locale.setDefault(myLocale)
-        val config = android.content.res.Configuration()
-        config.locale = myLocale
-        context.getResources().updateConfiguration(config, context.getResources().getDisplayMetrics())
-        // changeLang(lang, context)
-    }
-
-    fun changeLang(lang: String?) {
+    fun changeLang(lang: String) {
         var changeLanguage: Boolean = false;
-        if (lang != getLocaleLanguage(this)) changeLanguage = true
+        if (lang != LocaleHelper.getLanguage(this)) changeLanguage = true
 
         if(changeLanguage) {
-            saveLocale(lang, this);
-            restarApp()
+            LocaleHelper.setLocale(this, lang)
+            println("change language from " + LocaleHelper.getLanguage(this) + " to " + lang)
+            LocaleHelper.restarApp(this)
         }
 
     }
 
-    private fun saveLocale(lang: String?, context: Context) {
-        val langPref = "Language"
-        val prefs = context.getSharedPreferences("LanguageDefaultPreferences", Activity.MODE_PRIVATE)
-        val editor = prefs.edit()
-        editor.putString(langPref, lang)
-        editor.commit()
-    }
-
-    fun restarApp() {
-        /*val restart_app_intent = Intent(context, MainActivity::class.java)
-        restart_app_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
-        context.startActivity(restart_app_intent)
-        (context as Activity).finish()*/
-
-        val intent = intent
-        overridePendingTransition(0, 0)
-        intent.addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)
-        finish()
-
-        overridePendingTransition(0, 0)
-        startActivity(intent)
+    override fun onConfigurationChanged(newConfig: Configuration) {
+        super.onConfigurationChanged(newConfig)
+        onCreate(null)
     }
 
 }
