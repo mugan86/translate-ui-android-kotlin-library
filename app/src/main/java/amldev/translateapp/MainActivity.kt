@@ -8,7 +8,6 @@ import android.support.v7.app.AppCompatActivity
 import android.widget.Button
 import android.widget.TextView
 import org.jetbrains.anko.find
-import android.content.res.Configuration
 
 class MainActivity : AppCompatActivity() {
 
@@ -78,14 +77,9 @@ class MainActivity : AppCompatActivity() {
         if(changeLanguage) {
             LocaleHelper.setLocale(this, lang)
             println("change language from " + LocaleHelper.getLanguage(this) + " to " + lang)
-            LocaleHelper.restarApp(this)
+            LocaleHelper.restartApp(this)
         }
 
-    }
-
-    override fun onConfigurationChanged(newConfig: Configuration) {
-        super.onConfigurationChanged(newConfig)
-        onCreate(null)
     }
 
 }

@@ -79,7 +79,7 @@ object LocaleHelper {
         return context
     }
 
-    fun restarApp(context: Context) {
+    fun restartApp(context: Context) {
         val restart_app_intent = Intent(context, context::class.java)
         restart_app_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(restart_app_intent)
