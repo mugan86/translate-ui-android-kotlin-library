@@ -1,5 +1,6 @@
 package amldev.translateapp
 
+import amldev.i18n.LocaleHelper
 import android.content.Context
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView

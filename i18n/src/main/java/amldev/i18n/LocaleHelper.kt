@@ -1,4 +1,4 @@
-package amldev.translateapp
+package amldev.i18n
 
 import android.annotation.TargetApi
 import android.content.Context

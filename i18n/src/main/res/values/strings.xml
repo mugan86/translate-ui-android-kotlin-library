@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">i18n</string>
+    <string name="make_your_language_selection">Select your language</string>
+    <string name="spanish">Castellano</string>
+    <string name="catalan">Catalán</string>
+    <string name="deutchand">Alemán</string>
+    <string name="english">Inglés</string>
+    <string name="basque">Euskera</string>
+    <string name="francais">Francés</string>
+    <string name="galizian">Gallego</string>
+    <string name="italian">Italiano</string>
+
+    <string-array name="language_string">
+        <item>@string/english</item>
+        <item>@string/basque</item>
+        <item>@string/spanish</item>
+    </string-array>
+    <string-array name="language_codes">
+        <item>en</item>
+        <item>eu</item>
+        <item>es</item>
+    </string-array>
+</resources>
