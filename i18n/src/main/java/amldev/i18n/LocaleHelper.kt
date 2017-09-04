@@ -79,11 +79,23 @@ object LocaleHelper {
         return context
     }
 
-    fun restartApp(context: Context) {
+    private fun restartApp(context: Context) {
         val restart_app_intent = Intent(context, context::class.java)
         restart_app_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(restart_app_intent)
         (context as Activity).finish()
         context.overridePendingTransition(0, 0)
+    }
+
+    fun changeLang(context:Context, lang: String) {
+        var changeLanguage = false;
+        if (lang != getLanguage(context)) changeLanguage = true
+
+        if(changeLanguage) {
+            setLocale(context, lang)
+            println("change language from " + getLanguage(context) + " to " + lang)
+            restartApp(context)
+        }
+
     }
 }
