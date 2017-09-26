@@ -7,6 +7,8 @@ import android.os.Build
 import android.preference.PreferenceManager
 import java.util.*
 import android.app.Activity
+import android.content.DialogInterface
+import android.support.v7.app.AlertDialog
 
 /***************************************************************************************************
  * Created by Anartz Mugika (mugan86@gmail.com) on 30/7/17.
@@ -15,19 +17,12 @@ object LocaleHelper {
 
     private val SELECTED_LANGUAGE = "SELECT_LANGUAGE"
 
-    fun onAttach(context: Context): Context {
-        val lang = getPersistedData(context, Locale.getDefault().language)
-        return setLocale(context, lang)
-    }
+    fun onAttach(context: Context): Context = setLocale(context, getPersistedData(context, Locale.getDefault().language))
 
-    fun onAttach(context: Context, defaultLanguage: String): Context {
-        val lang = getPersistedData(context, defaultLanguage)
-        return setLocale(context, lang)
-    }
+    fun onAttach(context: Context, defaultLanguage: String): Context = setLocale(context, getPersistedData(context, defaultLanguage))
 
-    fun getLanguage(context: Context): String {
-        return getPersistedData(context, Locale.getDefault().language)
-    }
+    fun getLanguage(context: Context): String =
+            getPersistedData(context, Locale.getDefault().language)
 
     fun setLocale(context: Context, language: String): Context {
         persist(context, language)
@@ -79,7 +74,7 @@ object LocaleHelper {
         return context
     }
 
-    private fun restartApp(context: Context) {
+    fun restartApp(context: Context) {
         val restart_app_intent = Intent(context, context::class.java)
         restart_app_intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
         context.startActivity(restart_app_intent)
@@ -87,15 +82,13 @@ object LocaleHelper {
         context.overridePendingTransition(0, 0)
     }
 
-    fun changeLang(context:Context, lang: String) {
-        var changeLanguage = false;
-        if (lang != getLanguage(context)) changeLanguage = true
-
-        if(changeLanguage) {
-            setLocale(context, lang)
-            println("change language from " + getLanguage(context) + " to " + lang)
+    fun languageOptionsDialog(context: Context) {
+        val builder = AlertDialog.Builder(context)
+        builder.setTitle(context.resources.getString(R.string.make_your_language_selection))
+        builder.setItems(context.resources.getStringArray(R.array.language_string), DialogInterface.OnClickListener { dialog, item ->
+            setLocale(context, context.resources.getStringArray(R.array.language_codes) [item])
             restartApp(context)
-        }
-
+        })
+        builder.create().show()
     }
 }

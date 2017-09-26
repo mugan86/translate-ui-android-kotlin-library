@@ -40,17 +40,17 @@ class MainActivity : AppCompatActivity() {
 
         basqueButton.setOnClickListener {
             println("Change to basque" + LocaleHelper.getLanguage(this))
-            if (LocaleHelper.getLanguage(this) != "eu") LocaleHelper.changeLang(this, "eu")
+            if (LocaleHelper.getLanguage(this) != "eu") LocaleHelper.setLocale(this, "eu")
         }
 
         englishButton.setOnClickListener {
             println("Change to english" + LocaleHelper.getLanguage(this))
-            if (LocaleHelper.getLanguage(this) != "en") LocaleHelper.changeLang(this, "en")
+            if (LocaleHelper.getLanguage(this) != "en") LocaleHelper.setLocale(this, "en")
         }
 
         spanishButton.setOnClickListener {
             println("Change to spanish" + LocaleHelper.getLanguage(this))
-            if (LocaleHelper.getLanguage(this) != "es") LocaleHelper.changeLang(this, "es")
+            if (LocaleHelper.getLanguage(this) != "es") LocaleHelper.setLocale(this, "es")
         }
 
         navigation.setOnNavigationItemSelectedListener(mOnNavigationItemSelectedListener)
