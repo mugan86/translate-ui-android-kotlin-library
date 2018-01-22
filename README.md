@@ -1,6 +1,12 @@
 # Translate (i18n) Module in Kotlin to use in Android
 
 Library create by Anartz Mugika (mugan86@gmail.com)
+
+### Future TODOs ###
+* Update Gradle.
+* Adapt with new SDKs (remove depprecated)
+* Distribute with Maven.
+
 ### Instructions in English
 Library to create apps in different languages. For now it is only prepared for English, Spanish and Basque.
 The instructions for Android Studio are very simple, we clone the repository and after that, we do in our Android project that we want to import the module.
