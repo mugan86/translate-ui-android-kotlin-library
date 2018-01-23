@@ -3,9 +3,9 @@
 Library create by Anartz Mugika (mugan86@gmail.com)
 
 ### Future TODOs ###
-* Update Gradle.
-* Adapt with new SDKs (remove depprecated)
-* Distribute with Maven.
+* Update Gradle :white_check_mark:
+* Adapt with new SDKs (remove depprecated) :white_check_mark:
+* Distribute with Maven (Working) :construction_worker:
 
 ### Instructions in English
 Library to create apps in different languages. For now it is only prepared for English, Spanish and Basque.
@@ -25,7 +25,7 @@ And to do the different operations of the library:
 
 * Guardar un nuevo idioma:
 ```
-    LocaleHelper.setLocale(this, lang)
+    LocaleHelper.changeLang(this, lang)
 ```
 * Reiniciar la app (normalmente va junto con el cambio de idioma)
 ```
@@ -49,7 +49,7 @@ Para hacer el uso correcto en la librería, tenemos que añadir lo siguiente en 
 Y para hacer las diferentes operaciones de la librería:
 * Guardar un nuevo idioma:
 ```
-    LocaleHelper.setLocale(this, lang)
+    LocaleHelper.changeLang(this, lang)
 ```
 * Reiniciar la app (normalmente va junto con el cambio de idioma)
 ```
