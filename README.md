@@ -4,10 +4,34 @@
 
 Library create by Anartz Mugika (mugan86@gmail.com)
 
-### Future TODOs ###
+### Instructions to dowload library from Jitpack.io ###
+
+Reference :https://jitpack.io/#mugan86/translate-ui-android-kotlin-library/1.4
+
+In select project **build.gradle** file:
+```
+	allprojects {
+		repositories {
+			...
+			maven { url 'https://jitpack.io' }
+		}
+	}
+```
+
+In select module **build.gradle** file:
+```
+		dependencies {
+    	        implementation 'com.github.mugan86:translate-ui-android-kotlin-library:1.4'
+    	}
+
+```
+
+### New version features ###
 * Update Gradle :white_check_mark:
 * Adapt with new SDKs (remove depprecated) :white_check_mark:
-* Distribute with Maven (Working) :construction_worker:
+* Distribute with Maven (Working) :white_check_mark:
+
+
 
 ### Instructions in English
 Library to create apps in different languages. For now it is only prepared for English, Spanish and Basque.
