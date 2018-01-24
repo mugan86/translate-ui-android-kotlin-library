@@ -1,5 +1,7 @@
 # Translate (i18n) Module in Kotlin to use in Android
 
+[![](https://jitpack.io/v/mugan86/translate-ui-android-kotlin-library.svg)](https://jitpack.io/#mugan86/translate-ui-android-kotlin-library)
+
 Library create by Anartz Mugika (mugan86@gmail.com)
 
 ### Future TODOs ###
