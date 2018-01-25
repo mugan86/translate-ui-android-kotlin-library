@@ -1,12 +1,10 @@
 # Translate (i18n) Module in Kotlin to use in Android
 
-[![](https://jitpack.io/v/mugan86/translate-ui-android-kotlin-library.svg)](https://jitpack.io/#mugan86/translate-ui-android-kotlin-library/1.3-stable)
-
 Library create by Anartz Mugika (mugan86@gmail.com)
 
 ### Instructions to download library from Maven ###
 
-Reference :https://jitpack.io/#mugan86/translate-ui-android-kotlin-library/1.4
+[ ![Download](https://api.bintray.com/packages/amugika/maven/i18n/images/download.svg) ](https://bintray.com/amugika/maven/i18n/_latestVersion)
 
 In select project **build.gradle** file:
 ```
@@ -47,11 +45,11 @@ To make the correct use in the library, we have to add the following in the acti
 ```
 And to do the different operations of the library:
 
-* Guardar un nuevo idioma:
+* Change to select language:
 ```
     LocaleHelper.changeLang(this, lang)
 ```
-* Reiniciar la app (normalmente va junto con el cambio de idioma)
+* Restart App (make this action after change lang automatically)
 ```
     LocaleHelper.restartApp(this)
 ```
