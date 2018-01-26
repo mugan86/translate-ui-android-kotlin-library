@@ -23,6 +23,7 @@ In select module **build.gradle** file with gradle >= 3.0 use **'implementation'
 ```
 ### Next version features ###
 * Add more languages to use in Dialog selection.
+* Optimize code with one objective: Easy use.
 
 ### New version features ###
 * Update Gradle :white_check_mark:
