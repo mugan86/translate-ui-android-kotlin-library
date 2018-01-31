@@ -22,6 +22,7 @@ In select module **build.gradle** file with gradle >= 3.0 use **'implementation'
 
 ```
 ### Next version features ###
+* Adapt to Devices with SDK 25 or more recent.
 * Add more languages to use in Dialog selection.
 * Optimize code with one objective: Easy use.
 
